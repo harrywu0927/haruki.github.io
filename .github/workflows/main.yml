@@ -43,11 +43,5 @@ jobs:
       - name: Generate static files
         run: hexo generate
 
-      - name: Debug SSH Connection
-        run: ssh -vT git@github.com
-
-      - name: Test SSH Connection
-        run: git ls-remote git@github.com:harrywu0927/haruki.github.io.git
-
       - name: Deploy to GitHub Pages
         run: npx hexo deploy
