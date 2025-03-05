@@ -11,13 +11,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          submodules: recursive
           fetch-depth: 1
+
+      - name: Manually clone NexT theme
+        run: |
+          rm -rf themes/next  # 删除旧的 NexT 主题
+          git clone --depth=1 https://github.com/theme-next/hexo-theme-next.git themes/next
 
       - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.ME }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.Me }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
