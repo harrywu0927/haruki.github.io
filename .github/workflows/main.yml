@@ -25,6 +25,11 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+      - name: Configure Git user
+  	run: |
+    	  git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
