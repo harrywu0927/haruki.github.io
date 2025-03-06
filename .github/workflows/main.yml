@@ -43,5 +43,8 @@ jobs:
       - name: Generate static files
         run: hexo generate
 
+      - name: Manually Clone Repository
+        run: git clone git@github.com:harrywu0927/haruki.github.io.git test-clone
+
       - name: Deploy to GitHub Pages
         run: npx hexo deploy
